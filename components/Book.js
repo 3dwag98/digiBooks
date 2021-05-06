@@ -47,9 +47,15 @@ export default function Book({ book }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isPay, setPay] = useState(false);
   const toast = useToast();
-  const [rate, setRating] = useState(book.rating ? book.rating : 3);
+  const r = Math.floor(Math.random() * 5) + 1;
+  const [rate, setRating] = useState(book.rating ? book.rating : r);
   const { user } = useAuth();
   const onPClose = () => setPay(false);
+  const [name, setName] = useState("");
+  const [credit, setCredit] = useState(null);
+  const [valid, setValid] = useState("");
+  const [cvc, setCVC] = useState(null);
+
   const addBook = async (bookDetails) => {
     await firebase
       .database()
@@ -97,6 +103,8 @@ export default function Book({ book }) {
           duration: 9000,
           isClosable: true,
         });
+
+        setPay(false);
       });
     });
   }
@@ -153,7 +161,7 @@ export default function Book({ book }) {
         {book.title}
       </Text>
       <Spacer />
-      {book.imgUrl && <Image mt={4} mb={4} src={book.imgUrl} rounded={4}/>}
+      {book.imgUrl && <Image mt={4} mb={4} src={book.imgUrl} rounded={4} />}
       <Badge
         ml="1"
         fontSize="0.8em"
@@ -289,8 +297,10 @@ export default function Book({ book }) {
                       aria-describedby="usr-helper-text"
                       type="text"
                       id="usr"
-                      onChange={(e) => {}}
-                      value=""
+                      onChange={(e) => {
+                        setName(e.target.value);
+                      }}
+                      value={name}
                       placeholder="@lphaOmeGa"
                       variant="filled"
                     ></Input>
@@ -302,9 +312,12 @@ export default function Book({ book }) {
                       aria-describedby="fname-helper-text"
                       type="number"
                       id="fname"
-                      onChange={(e) => {}}
-                      value=""
-                      placeholder="*****689"
+                      onChange={(e) => {
+                        setCredit(e.target.value);
+                      }}
+                      value={credit}
+                      maxLength={16}
+                      placeholder="***********689"
                       variant="filled"
                     ></Input>
                     <FormHelperText>Enter Credit Card No.</FormHelperText>
@@ -313,12 +326,15 @@ export default function Book({ book }) {
                     <FormLabel htmlFor="lname">Valid Till</FormLabel>
                     <Input
                       aria-describedby="lname-helper-text"
-                      type="number"
+                      type="text"
                       id="lname"
-                      onChange={(e) => {}}
-                      value=""
+                      onChange={(e) => {
+                        setValid(e.target.value);
+                      }}
+                      value={valid}
                       placeholder="07/24"
                       variant="filled"
+                      maxLength={5}
                     ></Input>
                     <FormHelperText>Enter Valid Till</FormHelperText>
                   </FormControl>
@@ -327,12 +343,15 @@ export default function Book({ book }) {
                     <FormLabel htmlFor="email">CVC</FormLabel>
                     <Input
                       aria-describedby="email-helper-text"
-                      type="number"
+                      type="password"
                       id="email"
-                      onChange={(e) => {}}
-                      value=""
+                      onChange={(e) => {
+                        setCVC(e.target.value);
+                      }}
+                      value={cvc}
                       placeholder="007"
                       variant="filled"
+                      maxLength="3"
                     ></Input>
                     <FormHelperText>Enter CVC</FormHelperText>
                   </FormControl>
@@ -351,7 +370,13 @@ export default function Book({ book }) {
             <Button
               colorScheme="yellow"
               onClick={() => downloadURI(book.pdfUrl, book.title)}
-              isDisabled={!book.pdfUrl}
+              isDisabled={
+                !book.pdfUrl ||
+                name === "" ||
+                credit === null ||
+                valid === null ||
+                cvc === null
+              }
             >
               BUY NOW
             </Button>

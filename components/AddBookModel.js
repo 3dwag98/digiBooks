@@ -30,7 +30,6 @@ import { useState } from "react";
 import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/storage";
-import { mutate } from "swr";
 
 export default function AddBookModel({ finalRef, isOpen, onClose }) {
   const [title, setTitle] = useState("");
@@ -49,6 +48,8 @@ export default function AddBookModel({ finalRef, isOpen, onClose }) {
     var imgUrl = "";
     var storage = firebase.storage().ref();
     var ref = storage.child("cover/" + image.name);
+    // var uploadTask = storageRef.child('images/rivers.jpg').put(file);
+
     ref
       .put(image)
       .then(
@@ -73,7 +74,7 @@ export default function AddBookModel({ finalRef, isOpen, onClose }) {
         }
       )
       .then(async () => {
-       await ref
+        await ref
           .getDownloadURL()
           .then((uri) => {
             console.log(uri);
@@ -83,22 +84,27 @@ export default function AddBookModel({ finalRef, isOpen, onClose }) {
             console.log(error);
           });
       })
-
       .then(() => {
         storage
           .child("pdf/" + pdf.name)
           .put(pdf)
-          .then(
+          .on(
+            "state_changed",
             (snapshot) => {
-              toast({
-                title: "Added Book PDF",
-                description: pdf.name,
-                status: "success",
-                duration: 9000,
-                isClosable: true,
-              });
+              var progress =
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              console.log("Upload is " + progress + "% done");
+              switch (snapshot.state) {
+                case firebase.storage.TaskState.PAUSED: // or 'paused'
+                  console.log("Upload is paused");
+                  break;
+                case firebase.storage.TaskState.RUNNING: // or 'running'
+                  console.log("Upload is running");
+                  break;
+              }
             },
             (error) => {
+              // Handle unsuccessful uploads
               toast({
                 title: "An error occured",
                 description: error.message,
@@ -106,72 +112,117 @@ export default function AddBookModel({ finalRef, isOpen, onClose }) {
                 duration: 9000,
                 isClosable: true,
               });
+            },
+            () => {
+              storage
+                .child("pdf/" + pdf.name)
+                .put(pdf)
+                .snapshot.ref.getDownloadURL()
+                .then((downloadURL) => {
+                  console.log("File available at", downloadURL);
+                  pdfUrl = downloadURL;
+                  const book = {
+                    id: id,
+                    title: title,
+                    Author: author,
+                    genre: genre,
+                    publications: pub,
+                    price: price,
+                    description: details,
+                    imgUrl: imgUrl,
+                    pdfUrl: pdfUrl,
+                  };
+                  addBook(book);
+                  onClose.call();
+                });
             }
           );
-      })
-      .then(async () => {
-        await storage
-          .child("pdf/" + pdf.name)
-          .getDownloadURL()
-          .then((uri) => {
-            console.log(uri);
-            pdfUrl = uri;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      })
-      .then(() => {
-        const book = {
-          id: id,
-          title: title,
-          Author: author,
-          genre: genre,
-          publications: pub,
-          price: price,
-          description: details,
-          imgUrl: imgUrl,
-          pdfUrl: pdfUrl,
-        };
-        addBook(book);
       });
-
-    // ref = storageRef.child("pdf/" + pdf.name);
-    // ref.put(pdf).then(
-    //   (snapshot) => {
-    //     toast({
-    //       title: "Added Book PDF",
-    //       description: pdf.name,
-    //       status: "success",
-    //       duration: 9000,
-    //       isClosable: true,
-    //     });
-    //   },
-    //   (error) => {
-    //     toast({
-    //       title: "An error occured",
-    //       description: error.message,
-    //       status: "error",
-    //       duration: 9000,
-    //       isClosable: true,
-    //     });
-    //   }
-    // );
-
-    // const book = {
-    //   id: id,
-    //   title: title,
-    //   Author: author,
-    //   genre: genre,
-    //   publications: pub,
-    //   price: price,
-    //   description: details,
-    //   imgUrl:imgUrl,
-    //   pdfUrl:pdfUrl
-    // };
-    // addBook(book);
-    // setOpen(false);
   };
+  //     .then(
+  //       (snapshot) => {
+  //         toast({
+  //           title: "Added Book PDF",
+  //           description: pdf.name,
+  //           status: "success",
+  //           duration: 9000,
+  //           isClosable: true,
+  //         });
+  //         console.log(snapshot.val())
+  //       },
+  //       (error) => {
+  //         toast({
+  //           title: "An error occured",
+  //           description: error.message,
+  //           status: "error",
+  //           duration: 9000,
+  //           isClosable: true,
+  //         });
+  //       }
+  //     );
+  // })
+  // .then(async () => {
+  //   await storage
+  //     .child("pdf/" + pdf.name)
+  //     .getDownloadURL()
+  //     .then((uri) => {
+  //       console.log(uri);
+  //       pdfUrl = uri;
+  //       console.log(uri);
+  //       const book = {
+  //         id: id,
+  //         title: title,
+  //         Author: author,
+  //         genre: genre,
+  //         publications: pub,
+  //         price: price,
+  //         description: details,
+  //         imgUrl: imgUrl,
+  //         pdfUrl: pdfUrl,
+  //       };
+  //       addBook(book);
+  //       onClose.call();
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // });
+
+  // ref = storageRef.child("pdf/" + pdf.name);
+  // ref.put(pdf).then(
+  //   (snapshot) => {
+  //     toast({
+  //       title: "Added Book PDF",
+  //       description: pdf.name,
+  //       status: "success",
+  //       duration: 9000,
+  //       isClosable: true,
+  //     });
+  //   },
+  //   (error) => {
+  //     toast({
+  //       title: "An error occured",
+  //       description: error.message,
+  //       status: "error",
+  //       duration: 9000,
+  //       isClosable: true,
+  //     });
+  //   }
+  // );
+
+  // const book = {
+  //   id: id,
+  //   title: title,
+  //   Author: author,
+  //   genre: genre,
+  //   publications: pub,
+  //   price: price,
+  //   description: details,
+  //   imgUrl:imgUrl,
+  //   pdfUrl:pdfUrl
+  // };
+  // addBook(book);
+  // setOpen(false);
 
   const addBook = async (bookDetails) => {
     await firebase

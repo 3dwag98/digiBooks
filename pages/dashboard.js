@@ -43,30 +43,30 @@ const dashboard = ({ session, books }) => {
       });
   };
 
-  useEffect(() => {
-    let timer1 = setTimeout(() => {
-      firebase
-        .database()
-        .ref("/Users/" + firebase.auth().currentUser.uid)
-        .once("value")
-        .then((snapshot) => {
-          // if (snapshot.exists()) {
-          //   console.log(snapshot.val());
-          // } else {
-          //   console.log("No data available");
-          // }
+  // useEffect(() => {
+  //   let timer1 = setTimeout(() => {
+  //     firebase
+  //       .database()
+  //       .ref("/Users/" + firebase.auth().currentUser.uid)
+  //       .once("value")
+  //       .then((snapshot) => {
+  //         // if (snapshot.exists()) {
+  //         //   console.log(snapshot.val());
+  //         // } else {
+  //         //   console.log("No data available");
+  //         // }
 
-          setUser(snapshot.val());
-        });
-    }, 1 * 1000);
+  //         setUser(snapshot.val());
+  //       });
+  //   }, 1 * 1000);
 
-    return () => {
-      clearTimeout(timer1);
-    };
-  }, []);
+  //   return () => {
+  //     clearTimeout(timer1);
+  //   };
+  // }, []);
 
   if (session) {
-    // getUsr(session);
+    getUsr(session);
 
     if (!user || !books) {
       return (
@@ -95,7 +95,6 @@ const dashboard = ({ session, books }) => {
             >
               Library
             </Text>
-            {console.log(usr)}
             {usr?.type === "seller" && (
               <Button
                 alignSelf="center"

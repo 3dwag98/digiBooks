@@ -28,6 +28,7 @@ import {
   ModalHeader,
   ModalOverlay,
 } from "@chakra-ui/modal";
+import { useRouter } from "next/router";
 
 function signup() {
   firebaseClient();
@@ -43,6 +44,7 @@ function signup() {
   const bg = useColorModeValue("gray.400", "gray.700");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef();
+  const router = useRouter();
 
   const openDialog = (val) => {
     setType(val);
@@ -260,6 +262,7 @@ function signup() {
                     onChange={(e) => setContact(e.target.value)}
                     value={contact}
                     placeholder="638-565-895"
+                    maxLength="10"
                     variant="filled"
                   ></Input>
                   <FormHelperText>Enter Contact No.</FormHelperText>
