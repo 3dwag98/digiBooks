@@ -176,8 +176,8 @@ The Digi-Books application will help users and stakeholders to set-up and digita
 
 Below are the screenshots from the modules-
 # ![homepage](/screenshots/home1.jpeg)
-# ![about us](/screenshots/about us.png)
-# ![Library](/screenshots/books.jpeg)
+# ![aboutus](/screenshots/about us.png)
+# ![Library](/screenshots/books.png)
 
 
 
