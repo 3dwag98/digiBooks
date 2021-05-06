@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-    <img src="public/logo.gif" alt="Logo" width="160" height="160">
+    <img src="public/logo.gif" alt="Logo" width="160" height="160" >
   <h1 align="center">Digi-Books</h1>
 </p>
 
@@ -175,11 +175,10 @@ The Digi-Books application will help users and stakeholders to set-up and digita
 2) Sellers- Sellers who want to grow and upscale the business via digital platform can upload the books, books can be of format pdf and epub. Seller can earn revenue through this application. 
 
 Below are the screenshots from the modules-
-<div style="padding=50px">
-<img src="/screenshots/home1.jpeg" alt="homepage">
-<img src="/screenshots/about us.png" alt="about us">
-<img src="/screenshots/books.png" alt="Library">
-</div>
+# ![homepage](/screenshots/home1.jpeg)
+# ![about us](/screenshots/about us.png)
+# ![Library](/screenshots/books.jpeg)
+
 
 
 <!-- CONTRIBUTING -->
@@ -195,6 +194,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Contact
 Chintamani Gavade - [@ChintamaniGavade](https://twitter.com/ChintamaniGavade) - gawdechintamani@gmail.com
+
 Kiran Kapadi - kirankapdi1998@gmail.com
 
 <!-- ACKNOWLEDGEMENTS -->
