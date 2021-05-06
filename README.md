@@ -1,50 +1,9 @@
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Best-README-Template</h3>
-
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
-  </p>
+    <img src="public/logo.gif" alt="Logo" width="160" height="160">
+  <h1 align="center">Digi-Books</h1>
 </p>
 
 
@@ -57,19 +16,21 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#database-architecture">Database Architecture</a></li>        
       </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#learn-more">Learn More</a></li>
+        <li><a href="#deploy-on-vercel">Deploy on Vercel</a></li>
+        <li><a href="#run-the-application">Run the Application</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
@@ -80,74 +41,145 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img src="/screenshots/home2.jpeg" alt="digi-books">
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+### Greetings all!
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
+>We offer huge collection of e-books in diverse category of Fiction, Non-fiction, Biographies, History, Religions, Self -Help, Children. We also sell in vast collection of Investments and Management, Computers, Engineering, Medical, College and School text references books proposed by different institutes as syllabus across the country. We attempt to extend the customer satisfaction by catering easy user-friendly UI and payment options. Upside to all of this, we are disposed to provide e-books on digital platform in the form of pdf, epub to all the bibilophile. As well, we humbly invite all the sellers around the country to partner with us. We will surely provide you the platform for many sparkling genre and grow the <b>Digi-Books</b> family. We would like to thank you for shopping with us. You can write us for any new thoughts at <b>digi-books@support.com</b> helping us to improvise for the reader satisfaction.
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
+#### Thank You
 
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+We have built this application with minimilistic tools and maximum logic which helped us to focus on the best user-friendly UI and real time functionality. Below is the list with major frameworks that we built our project using.
+* [Node JS](https://nodejs.org/en/)
+* [React](https://reactjs.org/)
+* [NextJS](https://nextjs.org/)
+* [Firebase](https://firebase.google.com/)
+* [Chakra UI](https://chakra-ui.com/)
 
+### Database Architecture
 
+This Application is built with using [Firebase Realtime Database](https://firebase.google.com/docs/database) for storing user data and [Firebase Storage](https://firebase.google.com/docs/storage) for storing books related data.
 
-<!-- GETTING STARTED -->
+#### Book Database schema
+
+```json
+"Books" : {
+    "_1o6sna1f4" : {
+      "Author" : "Sane Guruji",
+      "description" : "श्यामची आई हे पुस्तक सुंदर आणि सुरस असून, त्यात साने गुरूजींनी हृदयातील सारा जिव्हाळा ओतलेला आहे. मातेबद्दल असणाऱ्या प्रेम, भक्ति व कृतज्ञता अशा अपार भावना 'श्यामची आई' या पुस्तकात साने गुरुजींनी मांडलेल्या आहेत. हे पुस्तक वाचून वाचकांचे डोळे व हृदय भरून येईल. हे पुस्तक ही एक सत्यकथा आहे. नाशिक तुरूंगात साने गुरूजींनी या कथा लिहिण्यास ९ फेब्रुवारी १९३३ (गुरुवार) रोजी सुरुवात केली आणि १३ फेब्रुवारी १९३३ (सोमवार) पहाटे त्या लिहून संपविल्या. मातेचा महिमा हे या पुस्तकातील मध्यवर्ती सूत्र आहे. त्याबरोबरच सुसंस्कृत व बाळबोध घराण्यातील साध्या, सरळ व रम्य संस्कृतीचे चित्रही यात आले आहे.\n",
+      "genre" : "Autobiography",
+      "id" : "_1o6sna1f4",
+      "imgUrl" : "https://firebasestorage.googleapis.com/v0/b/react-book-93a56.appspot.com/o/cover%2Fshyamchi_aai.png?alt=media&token=456e5ff5-68d6-4f4e-8ffe-cb438d11822e",
+      "pdfUrl" : "https://firebasestorage.googleapis.com/v0/b/react-book-93a56.appspot.com/o/pdf%2F%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE%E0%A4%9A%E0%A5%80_%E0%A4%86%E0%A4%88.pdf?alt=media&token=8f2a4c44-7654-4836-9f36-2f15c216bf2b",
+      "price" : "100",
+      "publications" : "Varada Prakashan Pvt. Ltd.",
+      "title" : "श्यामची आई"
+    },
+    "_31o5gaejk" : {
+      "Author" : "Jhumpa Lahiri",
+      "description" : "Unaccustomed Earth is a collection of short stories from American author Jhumpa Lahiri. It is her second collection of stories, following Interpreter of Maladies (which won the Pulitzer Prize for Fiction). As with much of Lahiri's work, Unaccustomed Earth considers the lives of Indian American characters and how they deal with their mixed cultural environment. The book was Lahiri's first #1 on the New York Times Best-sellers list, where it debuted at the top spot.\n",
+      "genre" : "Novel",
+      "id" : "_31o5gaejk",
+      "imgUrl" : "https://firebasestorage.googleapis.com/v0/b/react-book-93a56.appspot.com/o/cover%2Funaccustomed_earth.png?alt=media&token=35bac0b0-2edd-4a31-8528-0476ebbab2a8",
+      "pdfUrl" : "https://firebasestorage.googleapis.com/v0/b/react-book-93a56.appspot.com/o/pdf%2FUnaccustomed_Earth.pdf?alt=media&token=a6457eb4-061f-4d20-b327-db53d2813e1a",
+      "price" : "288",
+      "publications" : "Penguine Random House LLC",
+      "title" : "Unaccustomed Earth"
+    }}
+```
+
+#### Users Database schema
+```json
+"Users" : {
+    "01KgxzqdVSSnIyE5rqme4wz7FoH2" : {
+      "address" : "Chembur, Mumbai, 421234",
+      "contact" : "8452879685",
+      "email" : "chintgavade@ideal.com",
+      "fName" : "Chintamani",
+      "id" : "01KgxzqdVSSnIyE5rqme4wz7FoH2",
+      "lName" : "Gavade",
+      "type" : "seller",
+      "username" : "Ideal Books"
+    },
+    "9hQFqz2qaTOIhSAkHF7jUhGbcQD2" : {
+      "address" : "Kalyan, Thane, Maharashtra",
+      "contact" : "8258588397",
+      "email" : "kirankapdi@hotmail.com",
+      "fName" : "kiran",
+      "id" : "9hQFqz2qaTOIhSAkHF7jUhGbcQD2",
+      "lName" : "kapadi",
+      "type" : "user",
+      "username" : "kirankapdi"
+    }
+  }
+```
+
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+Install Node.JS installer- via [Node Site](https://nodejs.org/en/). Select relevant installer as per your OS and download the latest default version. Run the below command to get the latest version of NPM if you already have Node.JS installed.
 * npm
   ```sh
   npm install npm@latest -g
   ```
+  
+### Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+### Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
+1. Clone or Downlaod the repo using this [Github repo](https://github.com/3dwag98/digiBooks.git)
+2. Once the xip downloaded, extract the zip folder and open the command prompt and go to unzipped folder.
 3. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
+4. Install Firebase and Firebase NPM packages.
+   ```bash
+   npm install firebase
+   npm install firebase-admin
    ```
 
+### Run the Application
 
+To run the application, execute the following command in command prompt.
+```bash
+npm run dev
+```
+
+Use the following [localhost](http://localhost:3000) to view the application
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+The Digi-Books application will help users and stakeholders to set-up and digitalize the business model and upscale it. This application focuses on mainly features of types of 2 account- 
+1) Buyer- Bookholics can be use this digital platform to utilize the e-book facility, they can pay and download e-book and give rating/review the books.			
+2) Sellers- Sellers who want to grow and upscale the business via digital platform can upload the books, books can be of format pdf and epub. Seller can earn revenue through this application. 
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
-
+Below are the screenshots from the modules-
+<div style="padding=50px">
+<img src="/screenshots/home1.jpeg" alt="homepage">
+<img src="/screenshots/about us.png" alt="about us">
+<img src="/screenshots/books.png" alt="Library">
+</div>
 
 
 <!-- CONTRIBUTING -->
@@ -161,91 +193,13 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-
-
-<!-- CONTACT -->
 ## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-
+Chintamani Gavade - [@ChintamaniGavade](https://twitter.com/ChintamaniGavade) - gawdechintamani@gmail.com
+Kiran Kapadi - kirankapdi1998@gmail.com
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
+* [Typewriter](https://www.npmjs.com/package/typewriter-effect)
+* [React Icons](https://react-icons.github.io/react-icons/)
+* [Chakra UI](https://chakra-ui.com/)
 * [Font Awesome](https://fontawesome.com)
-
-
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
-
-
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
