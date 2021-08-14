@@ -30,6 +30,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#views">Views</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -174,14 +175,25 @@ The Digi-Books application will help users and stakeholders to set-up and digita
 1) Buyer- Bookholics can be use this digital platform to utilize the e-book facility, they can pay and download e-book and give rating/review the books.			
 2) Sellers- Sellers who want to grow and upscale the business via digital platform can upload the books, books can be of format pdf and epub. Seller can earn revenue through this application. 
 
+## Views
+
 Below are the screenshots from the modules-
+
+### Landing View
 # ![homepage](/screenshots/home1.jpeg)
+### Books
 # ![books](/screenshots/books.png)
-# ![books-info](/screenshots/book-info.png)
+### Book-Info
+# ![books-info](/screenshots/book-info.jpg)
+### Payment
 # ![books-payment](/screenshots/payment.jpg)
+### Login
 # ![books-login](/screenshots/login.jpg)
+### Create Account 
 # ![books-create](/screenshots/create-acc.jpg)
+### Add Book
 # ![books-add](/screenshots/add-book.png)
+### About-Us
 <img src="/screenshots/about us.png" alt="about us">
 
 
